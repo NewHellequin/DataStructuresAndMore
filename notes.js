@@ -43,67 +43,109 @@ const restaurant = {
   },
 };
 
-//SPREAD, because on the right side of =
-const arr = [1, 2, ...[3, 4]];
-
-//REST, because on the left side of the =
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
-
-const [pizza, , Risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, Risotto, otherFood);
-
-// Objects
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
-
-// functions
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
-  console.log(sum);
+////////////////////////////////
+// Logical Assignment Operator
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
 };
-add(2, 3);
-add(5, 3, 7, 2);
-add(8, 4, 8, 3, 2, 8, 7, 5);
 
-const x = [23, 5, 7];
-add(...x);
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
 
-restaurant.orderPizza('Mushrooms', 'Olives', 'Onions', 'Ham');
-restaurant.orderPizza('Mushrooms');
+// OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
 
-console.log('----OR------');
-// Use ANY data type, return ANY data type, short-circuiting
-console.log(3 || 'Jonas');
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
+// nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
 
-console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+// AND addignment operator
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
 
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
+console.log(rest1);
+console.log(rest2);
 
-const guest2 = restaurant.numGuests || 10;
-console.log(guest2);
+//////////////////////////////////////
+// Nullish Coalescing Operator ??
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
-console.log('-----AND------');
+// // Nullish: null adn undefined (NOT 0 or '')
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
 
-console.log(0 && 'Jonas');
-console.log(7 && 'Jonas');
+// //SPREAD, because on the right side of =
+// const arr = [1, 2, ...[3, 4]];
 
-console.log('Hello' && 23 && null && 'Jonas');
+// //REST, because on the left side of the =
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
 
-// Practical example
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('Mush', 'Spin');
-}
+// const [pizza, , Risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, Risotto, otherFood);
 
-restaurant.orderPizza && restaurant.orderPizza('Mushroom', 'Spinach');
+// // Objects
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+
+// // functions
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 4, 8, 3, 2, 8, 7, 5);
+
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza('Mushrooms', 'Olives', 'Onions', 'Ham');
+// restaurant.orderPizza('Mushrooms');
+
+// console.log('----OR------');
+// // Use ANY data type, return ANY data type, short-circuiting
+// console.log(3 || 'Jonas');
+// console.log('' || 'Jonas');
+// console.log(true || 0);
+// console.log(undefined || null);
+
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
+
+// const guest2 = restaurant.numGuests || 10;
+// console.log(guest2);
+
+// console.log('-----AND------');
+
+// console.log(0 && 'Jonas');
+// console.log(7 && 'Jonas');
+
+// console.log('Hello' && 23 && null && 'Jonas');
+
+// // Practical example
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('Mush', 'Spin');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('Mushroom', 'Spinach');
 
 // restaurant.orderDelivery({
 //   time: '22:30',
