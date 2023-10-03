@@ -98,10 +98,12 @@ console.log(rest2);
 // ];
 // console.log(pizza, Risotto, otherFood);
 
+///////////////////////////////////////////
 // // Objects
 // const { sat, ...weekdays } = restaurant.openingHours;
 // console.log(weekdays);
 
+///////////////////////////////////////////
 // // functions
 // const add = function (...numbers) {
 //   let sum = 0;
@@ -140,6 +142,7 @@ console.log(rest2);
 
 // console.log('Hello' && 23 && null && 'Jonas');
 
+//////////////////////////////////////////
 // // Practical example
 // if (restaurant.orderPizza) {
 //   restaurant.orderPizza('Mush', 'Spin');
@@ -154,7 +157,7 @@ console.log(rest2);
 //   starterIndex: 2,
 // });
 
-// // ---
+// ///////////////////////////////////////
 // const { name, openingHours, categories } = restaurant;
 // console.log(name, openingHours, categories);
 
@@ -165,10 +168,12 @@ console.log(rest2);
 // } = restaurant;
 // console.log(restaurantName, hours, tags);
 
+/////////////////////////////////////
 // // default values
 // const { menu = [], starterMenu: starters = [] } = restaurant;
 // console.log(menu, starters);
 
+//////////////////////////////////////
 // // mutating variables
 // let a = 111;
 // let b = 999;
@@ -177,6 +182,7 @@ console.log(rest2);
 // ({ a, b } = obj);
 // console.log(a, b);
 
+////////////////////////////////////////
 // // nested objects
 // const {
 //   fri: { open, close },
@@ -188,6 +194,7 @@ console.log(rest2);
 // // const b = arr[1];
 // // const c = arr[2];
 
+//////////////////////////////////////
 // // // destructuring assignment
 // // const [x, y, z] = arr;
 // // console.log(x, y, z);
@@ -205,10 +212,12 @@ console.log(rest2);
 
 // // console.log(restaurant.order(2, 0));
 
+//////////////////////////////////////
 // // // Receive 2 return values from a function
 // // const [starter, mainCourse] = restaurant.order(2, 0);
 // // console.log(starter, mainCourse);
 
+////////////////////////////////////
 // // // destructuring nested arrays
 // // const nested = [2, 4, [5, 6]];
 // // // const [i, , j] = nested;
@@ -216,10 +225,12 @@ console.log(rest2);
 // // const [i, , [j, k]] = nested;
 // // console.log(i, j, k);
 
+/////////////////////////////////////
 // // // defaults values
 // // const [p = 1, q = 1, r = 1] = [8, 9];
 // // console.log(p, q, r);
 
+//////////////////////////////////////
 // // The spread operator
 // const arr = [7, 8, 9];
 // const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -237,9 +248,11 @@ console.log(rest2);
 
 // // bit similar to destructuring, doesnt override stuff
 
+/////////////////////////////////////////
 // // Copy Array
 // const mainMenuCopy = [...restaurant.mainMenu];
 
+//////////////////////////////////////////
 // // join 2 arrays
 // const wholeMenu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 // console.log(wholeMenu);
@@ -263,6 +276,7 @@ console.log(rest2);
 // // restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
 // // restaurant.orderPasta(...ingredients); // ES6 syntax - much better than the above
 
+///////////////////////////////////////
 // //Objects
 // const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
 // console.log(newRestaurant);
