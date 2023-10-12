@@ -21,7 +21,7 @@ const restaurant = {
       close: 23,
     },
     sat: {
-      open: 0, // Open 24 hours
+      open: 'always', // Open 24 hours
       close: 24,
     },
   },
@@ -37,24 +37,74 @@ const restaurant = {
     );
   },
 
-  orderPizza: function (mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
 };
 
-////////////////////////////////
-// Logical Assignment Operator
-const rest1 = {
-  name: 'Capri',
-  // numGuests: 20,
-  numGuests: 0,
-};
+///////////////////////////////
+// Optional Chaining
 
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
-};
+if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// if (restaurant.openingHours.fri) console.log(restaurant.openingHours.fri.open);
+
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// with optional chaining:
+
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+const days = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`on ${day}, we open at ${open}`);
+}
+// use ?? above not || as it isnt effected by the nullish value
+
+// Methods
+
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exitst');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exitst');
+
+// Arrays
+const users = [{ name: 'jonas', email: 'hello' }];
+
+console.log(users[0]?.name ?? 'User array empty');
+
+////////////////////////////////
+// Enhanced Object Literals
+
+////////////////////////////////
+// For-of loop
+
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// for (const item of menu) console.log(item);
+
+// for (const [a, b] of menu.entries()) {
+//   console.log(`${a + 1}: ${b}`);
+// }
+
+// console.log([...menu.entries()]);
+
+// ////////////////////////////////
+// // Logical Assignment Operator
+// const rest1 = {
+//   name: 'Capri',
+//   // numGuests: 20,
+//   numGuests: 0,
+// };
+
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
 
 // OR assignment operator
 // rest1.numGuests = rest1.numGuests || 10;
@@ -63,17 +113,17 @@ const rest2 = {
 // rest2.numGuests ||= 10;
 
 // nullish assignment operator (null or undefined)
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
 
-// AND addignment operator
-// rest1.owner = rest1.owner && '<ANONYMOUS>';
-// rest2.owner = rest2.owner && '<ANONYMOUS>';
-rest1.owner &&= '<ANONYMOUS>';
-rest2.owner &&= '<ANONYMOUS>';
+// // AND addignment operator
+// // rest1.owner = rest1.owner && '<ANONYMOUS>';
+// // rest2.owner = rest2.owner && '<ANONYMOUS>';
+// rest1.owner &&= '<ANONYMOUS>';
+// rest2.owner &&= '<ANONYMOUS>';
 
-console.log(rest1);
-console.log(rest2);
+// console.log(rest1);
+// console.log(rest2);
 
 //////////////////////////////////////
 // Nullish Coalescing Operator ??
