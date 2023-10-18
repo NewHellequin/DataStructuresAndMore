@@ -11,21 +11,6 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 'always', // Open 24 hours
-      close: 24,
-    },
-  },
-
   orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}. Thank you.`
@@ -42,40 +27,61 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 'always', // Open 24 hours
+    close: 24,
+  },
+};
 
-///////////////////////////////
-// Optional Chaining
+//////////////////////////////////
+// Looping objectives: Object MediaKeySession, values and entries
 
-if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
-
-// if (restaurant.openingHours.fri) console.log(restaurant.openingHours.fri.open);
-
-if (restaurant.openingHours && restaurant.openingHours.mon)
-  console.log(restaurant.openingHours.mon.open);
-
-// with optional chaining:
-
-console.log(restaurant.openingHours.mon?.open);
-console.log(restaurant.openingHours?.mon?.open);
-
-// Example
-const days = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
-
-for (const day of days) {
-  const open = restaurant.openingHours[day]?.open ?? 'closed';
-  console.log(`on ${day}, we open at ${open}`);
+for (const day of Object.keys(openingHours)) {
+  console.log(day);
 }
-// use ?? above not || as it isnt effected by the nullish value
 
-// Methods
+// ///////////////////////////////
+// // Optional Chaining
 
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exitst');
-console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exitst');
+// if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
 
-// Arrays
-const users = [{ name: 'jonas', email: 'hello' }];
+// // if (restaurant.openingHours.fri) console.log(restaurant.openingHours.fri.open);
 
-console.log(users[0]?.name ?? 'User array empty');
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
+
+// // with optional chaining:
+
+// console.log(restaurant.openingHours.mon?.open);
+// console.log(restaurant.openingHours?.mon?.open);
+
+// // Example
+// const days = ['mon', 'tues', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// for (const day of days) {
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`on ${day}, we open at ${open}`);
+// }
+// // use ?? above not || as it isnt effected by the nullish value
+
+// // Methods
+
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exitst');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exitst');
+
+// // Arrays
+// const users = [{ name: 'jonas', email: 'hello' }];
+
+// console.log(users[0]?.name ?? 'User array empty');
 
 ////////////////////////////////
 // Enhanced Object Literals
