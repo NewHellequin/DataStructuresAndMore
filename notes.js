@@ -42,33 +42,103 @@ const openingHours = {
   },
 };
 
+/////////////////////////////////
+// Maps
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 1100)
+  .set('close', 2300)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 2100;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+
+const arr = [1, 2];
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get(arr));
+
+// //////////////////////////////////
+// // Sets
+
+// const ordersSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Pasta',
+//   'Risotto',
+//   'Pizza',
+// ]);
+// console.log(ordersSet);
+
+// console.log(new Set('Jonas'));
+
+// console.log(ordersSet.size);
+// console.log(ordersSet.has('Pizza'));
+// console.log(ordersSet.has('Braed'));
+// ordersSet.add('Garlic Bread');
+// ordersSet.add('Garlic Bread');
+// ordersSet.delete('Risotto');
+// // ordersSet.clear(); clears the entire set
+// console.log(ordersSet); // No indexes in a Set
+
+// for (const order of ordersSet) console.log(order);
+
+// // Example
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// let staffUnique = new Set(staff);
+// console.log(staffUnique);
+// staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+// console.log(
+//   new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+// );
+// console.log(new Set('abcdefghijklmnopqrstuvwxyz').size);
+
 //////////////////////////////////
 // Looping objectives: Object MediaKeySession, values and entries
 
 // Property NAMES
 
-const properties = Object.keys(openingHours);
-console.log(properties);
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-let openStr = `We are open on ${properties.length} days: `;
+// let openStr = `We are open on ${properties.length} days: `;
 
-for (const day of Object.keys(openingHours)) {
-  openStr += `${day}, `;
-}
-console.log(openStr);
+// for (const day of Object.keys(openingHours)) {
+//   openStr += `${day}, `;
+// }
+// console.log(openStr);
 
-// Property VALUES
-const values = Object.values(openingHours);
-console.log(values);
+// // Property VALUES
+// const values = Object.values(openingHours);
+// console.log(values);
 
-// Entire Object
-const entries = Object.entries(openingHours);
-// console.log(entries);
+// // Entire Object
+// const entries = Object.entries(openingHours);
+// // console.log(entries);
 
-// [key, value]
-for (const [key, { open, close }] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}`);
-}
+// // [key, value]
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
 
 // ///////////////////////////////
 // // Optional Chaining
