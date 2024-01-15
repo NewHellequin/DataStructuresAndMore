@@ -31,3 +31,47 @@
 
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
+
+//////////
+
+// reduce all to lower case
+
+const inputUppercase = 'underscore_case';
+
+const inputLowercase = inputUppercase.toLowerCase();
+console.log(inputLowercase);
+
+// seperate names
+
+console.log(inputLowercase.split('_'));
+
+const [firstWord, lastWord] = inputLowercase.split('_');
+
+console.log(`${firstWord}${lastWord}`);
+
+// capitalise first letter of second word
+
+const capitaliseWord = function (word) {
+  const words = word.split('_');
+  const wordsUpper = [];
+
+  for (const n of words) {
+    wordsUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(wordsUpper.join(''));
+};
+
+capitaliseWord(`${lastWord}`);
+
+///
+
+const abc = [firstWord, lastWord[0].toUpperCase()].join('');
+console.log(abc);
+
+// join words
+
+// count length of line +1 for new line
+
+// add tick emoji at the end
+
+// add padding of "." between name and tick emoji
